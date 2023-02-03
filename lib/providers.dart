@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_task/providers/firebase/auth_provider.dart';
 import 'package:flutter_test_task/providers/map_provider.dart';
 import 'package:flutter_test_task/providers/settings_provider.dart';
+import 'package:flutter_test_task/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 class Providers extends StatelessWidget {
@@ -24,6 +25,9 @@ class Providers extends StatelessWidget {
         ChangeNotifierProvider(
           lazy: false,
           create: (_) => mapProvider,
+        ),
+        ChangeNotifierProvider(
+          create: (_) => userProvider,
         ),
       ],
       child: child,

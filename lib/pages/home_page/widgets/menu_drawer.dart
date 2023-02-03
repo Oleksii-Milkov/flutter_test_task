@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_task/generated/l10n.dart';
-import 'package:flutter_test_task/pages/auth_page.dart';
+import 'package:flutter_test_task/pages/auth_page/auth_page.dart';
+import 'package:flutter_test_task/pages/profile/profile_page.dart';
 import 'package:flutter_test_task/providers/firebase/auth_provider.dart';
 import 'package:flutter_test_task/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -16,8 +17,8 @@ class MenuDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: const BoxDecoration(
-              color: Colors.blue,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -41,7 +42,14 @@ class MenuDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.person),
             title: Text(S.current.profile),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const ProfilePage(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: const Icon(Icons.settings),

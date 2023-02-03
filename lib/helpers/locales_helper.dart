@@ -23,10 +23,6 @@ class LocalesHelper {
     return language.nativeCountryName;
   }
 
-  bool isLocaleSupport (String languageCode) {
-    return localesList.any((element) => element.languageCode == languageCode);
-  }
-
   static List<Locale> get localesList {
     return languagesList.map((language) => language.locale).toList();
   }

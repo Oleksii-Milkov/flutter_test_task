@@ -9,13 +9,17 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Auth page'),
+            const FlutterLogo(
+              size: 180,
+            ),
+            const SizedBox(height: 48),
             ElevatedButton.icon(
               onPressed: () async {
-                await context.read<AuthProvider>().signIn().whenComplete(() {
+                await context.read<AuthProvider>().signInWithGoogle().whenComplete(() {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(

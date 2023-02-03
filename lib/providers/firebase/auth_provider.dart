@@ -3,39 +3,30 @@ import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthProvider extends ChangeNotifier {
-  AuthProvider() {
-    firebaseAuth = FirebaseAuth.instance;
-    googleSignIn = GoogleSignIn();
-  }
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  GoogleSignIn googleSignIn = GoogleSignIn();
 
-  late FirebaseAuth firebaseAuth;
-  late GoogleSignIn googleSignIn;
-
-  bool get isAuthorized => firebaseAuth.currentUser != null;
-
-  Future<void> signIn() async {
-    final GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
+  Future<void> signInWithGoogle() async {
+    final googleSignInAccount = await googleSignIn.signIn();
 
     if (googleSignInAccount != null) {
-      final GoogleSignInAuthentication googleSignInAuthentication =
-      await googleSignInAccount.authentication;
+      final googleSignInAuth = await googleSignInAccount.authentication;
 
       final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken,
+        accessToken: googleSignInAuth.accessToken,
+        idToken: googleSignInAuth.idToken,
       );
 
       try {
         await firebaseAuth.signInWithCredential(credential);
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'account-exists-with-different-credential') {
-          // handle the error here
+      } on FirebaseAuthException catch (err) {
+        switch (err.code) {
+          case 'account-exists-with-different-credential':
+          case 'invalid-credential':
+            if (kDebugMode) print(err);
         }
-        else if (e.code == 'invalid-credential') {
-          // handle the error here
-        }
-      } catch (e) {
-        // handle the error here
+      } catch (err) {
+        if (kDebugMode) print(err);
       }
     }
   }
