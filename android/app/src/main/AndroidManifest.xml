@@ -4,6 +4,10 @@
         android:label="flutter_test_task"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyCJvTcvYbb95bHQ_qW9AohjFW5nHwtcmkk"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
