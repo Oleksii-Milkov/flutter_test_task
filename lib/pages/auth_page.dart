@@ -1,7 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test_task/pages/home_page.dart';
-import 'package:flutter_test_task/providers/auth_provider.dart';
+import 'package:flutter_test_task/pages/home_page/home_page.dart';
+import 'package:flutter_test_task/providers/firebase/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class AuthPage extends StatelessWidget {
