@@ -79,6 +79,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Hello,\n{user}!`
+  String helloUser(String user) {
+    return Intl.message(
+      'Hello,\n$user!',
+      name: 'helloUser',
+      desc: '',
+      args: [user],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -87,6 +97,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'uk'),
     ];
   }
 

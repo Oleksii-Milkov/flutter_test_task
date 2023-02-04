@@ -20,21 +20,40 @@ class MenuDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primary,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
               children: [
-                Consumer<SettingsProvider>(
-                  builder: (context, settingsProvider, child) {
-                    return IconButton(
-                      onPressed: () async {
-                        await settingsProvider.setThemeMode();
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Consumer<AuthProvider>(
+                      builder: (context, authProvider, child) {
+                        if (authProvider.currentUser?.displayName != null) {
+                          return Flexible(
+                            child: Text(
+                              S.current.helloUser(
+                                authProvider.currentUser!.displayName!,
+                              ),
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                          );
+                        } else {
+                          return const SizedBox.shrink();
+                        }
                       },
-                      icon: settingsProvider.isDark
-                          ? const Icon(Icons.dark_mode_outlined)
-                          : const Icon(Icons.light_mode_outlined),
-                    );
-                  },
+                    ),
+                    Consumer<SettingsProvider>(
+                      builder: (context, settingsProvider, child) {
+                        return IconButton(
+                          onPressed: () async {
+                            await settingsProvider.setThemeMode();
+                          },
+                          icon: settingsProvider.isDark
+                              ? const Icon(Icons.dark_mode_outlined)
+                              : const Icon(Icons.light_mode_outlined),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),

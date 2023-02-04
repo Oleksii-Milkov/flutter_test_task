@@ -7,42 +7,39 @@ class LocationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Consumer<MapProvider>(
-        builder: (context, mapProvider, child) {
-          switch (mapProvider.locationMode) {
-            case LocationMode.moved:
-              return FloatingActionButton(
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                onPressed: () {
-                  context.read<MapProvider>().setCurrentLocation();
-                },
-                child: Icon(
-                  Icons.location_searching,
-                  color: Theme.of(context).dialogBackgroundColor,
-                ),
-              );
-            case LocationMode.standart:
-              return FloatingActionButton(
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                onPressed: () {},
-                child: Icon(
-                  Icons.my_location,
-                  color: Theme.of(context).dialogBackgroundColor,
-                ),
-              );
-            case LocationMode.navigator:
-              return FloatingActionButton(
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                onPressed: () {},
-                child: Icon(
-                  Icons.navigation,
-                  color: Theme.of(context).dialogBackgroundColor,
-                ),
-              );
-          }
-        },
+    return Theme(
+      data: Theme.of(context).copyWith(
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          iconSize: 28,
+          foregroundColor: Theme.of(context).iconTheme.color,
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Consumer<MapProvider>(
+          builder: (context, mapProvider, child) {
+            switch (mapProvider.locationMode) {
+              case LocationMode.moved:
+                return FloatingActionButton(
+                  onPressed: () {
+                    context.read<MapProvider>().setCurrentLocation();
+                  },
+                  child: const Icon(Icons.location_searching),
+                );
+              case LocationMode.standart:
+                return FloatingActionButton(
+                  onPressed: () {},
+                  child: const Icon(Icons.my_location),
+                );
+              case LocationMode.navigator:
+                return FloatingActionButton(
+                  onPressed: () {},
+                  child: const Icon(Icons.navigation),
+                );
+            }
+          },
+        ),
       ),
     );
   }

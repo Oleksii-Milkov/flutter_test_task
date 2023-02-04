@@ -1,0 +1,13 @@
+{
+  "settings": "Налаштування",
+  "signOut": "Вийти",
+  "profile": "Профіль",
+  "helloUser": "Вітаю,\n{user}!",
+  "@helloUser": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  }
+}

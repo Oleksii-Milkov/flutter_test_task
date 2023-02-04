@@ -1,5 +1,13 @@
 {
   "settings": "Settings",
   "signOut": "Sign out",
-  "profile": "Profile"
+  "profile": "Profile",
+  "helloUser": "Hello,\n{user}!",
+  "@helloUser": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_test_task/helpers/location_helper.dart';
-import 'package:flutter_test_task/providers/firebase/auth_provider.dart';
 import 'package:flutter_test_task/providers/firebase/database_base.dart';
 import 'package:flutter_test_task/providers/settings_provider.dart';
 import 'package:flutter_test_task/providers/user_provider.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 enum LocationMode { moved, standart, navigator }
@@ -15,7 +13,7 @@ class MapProvider extends ChangeNotifier with DatabaseBase {
     loadMapStyles();
   }
 
-  LocationHelper locationHelper = LocationHelper();
+  // Map theme ==============================================================
 
   late String darkMapStyle;
   late String lightMapStyle;
@@ -25,7 +23,7 @@ class MapProvider extends ChangeNotifier with DatabaseBase {
     lightMapStyle = await rootBundle.loadString('assets/map_styles/light.json');
   }
 
-  late GoogleMapController mapController;
+  // Location button state ==================================================
 
   LocationMode _locationMode = LocationMode.moved;
 
@@ -36,11 +34,14 @@ class MapProvider extends ChangeNotifier with DatabaseBase {
     notifyListeners();
   }
 
+  // Controller =============================================================
+
+  late GoogleMapController mapController;
+
   void onMapCreated(GoogleMapController controller) {
     mapController = controller;
-    locationHelper.initLocationTracking().whenComplete(() {
+    LocationHelper.initLocation.whenComplete(() {
       setCurrentLocation();
-      locationHelper.startPositionStream().listen((Position position) {});
     });
     setMapStyle();
   }
@@ -62,16 +63,14 @@ class MapProvider extends ChangeNotifier with DatabaseBase {
 
   void setCurrentLocation() {
     CameraPosition cameraPosition = CameraPosition(
-      target: LatLng(
-        locationHelper.currentPosition.latitude,
-        locationHelper.currentPosition.longitude,
-      ),
+      target: LocationHelper.currentLatLon,
       zoom: 16,
     );
+    CameraUpdate cameraUpdate = CameraUpdate.newCameraPosition(cameraPosition);
 
-    mapController.animateCamera(
-          CameraUpdate.newCameraPosition(cameraPosition),
-        ).whenComplete(() => locationMode = LocationMode.standart);
+    mapController.animateCamera(cameraUpdate).whenComplete(
+          () => locationMode = LocationMode.standart,
+        );
   }
 }
 
