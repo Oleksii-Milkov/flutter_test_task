@@ -46,6 +46,11 @@ flutter:
     - assets/images/
     - assets/map_styles/
 
+  fonts:
+    - family: CustomIcons
+      fonts:
+        - asset: fonts/CustomIcons.ttf
+
 flutter_intl:
   enabled: true
 
