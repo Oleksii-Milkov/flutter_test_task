@@ -24,11 +24,11 @@ class ProfilePage extends StatelessWidget {
                 return Row(
                   children: [
                     CircleAvatar(
-                      backgroundImage: currentUser != null
+                      foregroundImage: currentUser != null
                           ? Image.network(currentUser.photoURL ?? '').image
                           : null,
                       radius: 24,
-                      //child: const Icon(Icons.person),
+                      child: const Icon(Icons.person),
                     ),
                     const SizedBox(width: 12),
                     Column(

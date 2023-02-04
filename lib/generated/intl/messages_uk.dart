@@ -22,11 +22,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(user) => "Вітаю,\n${user}!";
 
+  static String m1(time) => "Востаннє в мережі: ${time}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "givePermission": MessageLookupByLibrary.simpleMessage("Надати права"),
         "helloUser": m0,
+        "language": MessageLookupByLibrary.simpleMessage("Мова"),
+        "lastSeen": m1,
+        "online": MessageLookupByLibrary.simpleMessage("В мережі"),
+        "permissionDenied":
+            MessageLookupByLibrary.simpleMessage("Права відхилено"),
+        "permissionDeniedForever": MessageLookupByLibrary.simpleMessage(
+            "Права відхилено назавжди. Вам потрібно надати права самостійно через налаштування."),
         "profile": MessageLookupByLibrary.simpleMessage("Профіль"),
         "settings": MessageLookupByLibrary.simpleMessage("Налаштування"),
+        "signInWithGoogle":
+            MessageLookupByLibrary.simpleMessage("Увійти через Google"),
         "signOut": MessageLookupByLibrary.simpleMessage("Вийти")
       };
 }

@@ -22,11 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(user) => "Hello,\n${user}!";
 
+  static String m1(time) => "Last seen: ${time}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "givePermission":
+            MessageLookupByLibrary.simpleMessage("Give permission"),
         "helloUser": m0,
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "lastSeen": m1,
+        "online": MessageLookupByLibrary.simpleMessage("Online"),
+        "permissionDenied":
+            MessageLookupByLibrary.simpleMessage("Permission denied"),
+        "permissionDeniedForever": MessageLookupByLibrary.simpleMessage(
+            "Permission denied forever. You must go to app setting and enable location permission."),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "signInWithGoogle":
+            MessageLookupByLibrary.simpleMessage("Sign in with Google"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign out")
       };
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_task/generated/l10n.dart';
 import 'package:flutter_test_task/pages/auth_page/auth_page.dart';
 import 'package:flutter_test_task/pages/profile/profile_page.dart';
+import 'package:flutter_test_task/pages/settings_page/settings_page.dart';
 import 'package:flutter_test_task/providers/firebase/auth_provider.dart';
 import 'package:flutter_test_task/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -73,7 +74,14 @@ class MenuDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.settings),
             title: Text(S.current.settings),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const SettingPage(),
+                ),
+              );
+            },
           ),
           const Divider(),
           ListTile(

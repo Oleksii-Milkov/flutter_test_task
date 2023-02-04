@@ -9,5 +9,19 @@
         "type": "String"
       }
     }
-  }
+  },
+  "language": "Мова",
+  "permissionDeniedForever": "Права відхилено назавжди. Вам потрібно надати права самостійно через налаштування.",
+  "permissionDenied": "Права відхилено",
+  "givePermission": "Надати права",
+  "signInWithGoogle": "Увійти через Google",
+  "lastSeen": "Востаннє в мережі: {time}",
+  "@lastSeen": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "online": "В мережі"
 }

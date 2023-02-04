@@ -89,6 +89,76 @@ class S {
       args: [user],
     );
   }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Permission denied forever. You must go to app setting and enable location permission.`
+  String get permissionDeniedForever {
+    return Intl.message(
+      'Permission denied forever. You must go to app setting and enable location permission.',
+      name: 'permissionDeniedForever',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Permission denied`
+  String get permissionDenied {
+    return Intl.message(
+      'Permission denied',
+      name: 'permissionDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Give permission`
+  String get givePermission {
+    return Intl.message(
+      'Give permission',
+      name: 'givePermission',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Google`
+  String get signInWithGoogle {
+    return Intl.message(
+      'Sign in with Google',
+      name: 'signInWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last seen: {time}`
+  String lastSeen(String time) {
+    return Intl.message(
+      'Last seen: $time',
+      name: 'lastSeen',
+      desc: '',
+      args: [time],
+    );
+  }
+
+  /// `Online`
+  String get online {
+    return Intl.message(
+      'Online',
+      name: 'online',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -37,6 +37,7 @@ class UserProvider extends ChangeNotifier with DatabaseBase {
           position.latitude,
           position.longitude,
         ),
+        'lastSeen': DateTime.now(),
       },
     };
     if (uid != null) await usersReference(uid).update(requestBody);
@@ -44,9 +45,7 @@ class UserProvider extends ChangeNotifier with DatabaseBase {
 
   Future<void> clearUserPosition(String? uid) async {
     Map<String, dynamic> requestBody = {
-      'location': {
-        'geoPoint': null,
-      },
+      'location': null,
     };
     if (uid != null) await usersReference(uid).update(requestBody);
   }

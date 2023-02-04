@@ -23,15 +23,23 @@ class SettingsProvider extends ChangeNotifier {
 
   // Locale ===============================================================
 
-  String languageCode = 'en';
+  String _languageCode = 'en';
+
+  String get languageCode => _languageCode;
+
+  set languageCode(String languageCode) {
+    _languageCode = languageCode;
+    notifyListeners();
+  }
+
+  // Prefs save/load ======================================================
 
   Future<void> loadSettings() async {
     prefs = await SharedPreferences.getInstance();
 
     loadThemeMode();
+    loadLanguage();
   }
-
-  // Prefs save/load ======================================================
 
   void loadThemeMode() {
     final bool? savedThemeMode = prefs.getBool('themeMode');
@@ -47,7 +55,19 @@ class SettingsProvider extends ChangeNotifier {
     await prefs.setBool('themeMode', isDark);
   }
 
-  Future<void> setLanguage() async {}
+  void loadLanguage() {
+    final String? language = prefs.getString('languageCode');
+    if (language == null) {
+      languageCode = 'en';
+      return;
+    }
+    languageCode = language;
+  }
+
+  Future<void> setLanguage(String language) async {
+    languageCode = language;
+    await prefs.setString('languageCode', languageCode);
+  }
 }
 
 SettingsProvider settingsProvider = SettingsProvider();
