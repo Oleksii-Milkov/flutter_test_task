@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_task/providers/firebase/auth_provider.dart';
 import 'package:flutter_test_task/providers/map_provider.dart';
 import 'package:flutter_test_task/providers/markers_provider.dart';
+import 'package:flutter_test_task/providers/polyline_provider.dart';
 import 'package:flutter_test_task/providers/settings_provider.dart';
 import 'package:flutter_test_task/providers/user_provider.dart';
 import 'package:provider/provider.dart';
@@ -33,6 +34,9 @@ class Providers extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => markersProvider,
         ),
+        ChangeNotifierProvider(
+          create: (_) => polylineProvider,
+        )
       ],
       child: child,
     );

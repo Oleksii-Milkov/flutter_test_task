@@ -7,6 +7,7 @@ import 'package:flutter_test_task/pages/home_page/widgets/location_button.dart';
 import 'package:flutter_test_task/providers/firebase/auth_provider.dart';
 import 'package:flutter_test_task/providers/map_provider.dart';
 import 'package:flutter_test_task/providers/markers_provider.dart';
+import 'package:flutter_test_task/providers/polyline_provider.dart';
 import 'package:flutter_test_task/providers/user_provider.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -93,6 +94,9 @@ class _FlutterMapState extends State<FlutterMap> with WidgetsBindingObserver {
           myLocationButtonEnabled: false,
           markers: Set.of(
             context.watch<MarkersProvider>().markers.values,
+          ),
+          polylines: Set.of(
+            context.watch<PolylineProvider>().polylines.values,
           ),
           onTap: (LatLng position) {
             FocusManager.instance.primaryFocus?.unfocus();

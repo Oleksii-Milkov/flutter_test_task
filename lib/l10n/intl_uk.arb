@@ -24,5 +24,7 @@
     }
   },
   "online": "В мережі",
-  "search": "Пошук"
+  "search": "Пошук",
+  "buildRoute": "Маршрут",
+  "deleteRoute": "Видалити маршрут"
 }

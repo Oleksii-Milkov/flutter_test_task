@@ -24,5 +24,7 @@
     }
   },
   "online": "Online",
-  "search": "Search"
+  "search": "Search",
+  "buildRoute": "Build Route",
+  "deleteRoute": "Delete route"
 }

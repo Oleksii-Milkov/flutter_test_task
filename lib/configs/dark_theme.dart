@@ -5,6 +5,7 @@ class DarkTheme {
         colorScheme: const ColorScheme.dark(),
         cardTheme: const CardTheme(
           margin: EdgeInsets.zero,
+          clipBehavior: Clip.none
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           elevation: 6,

@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "buildRoute": MessageLookupByLibrary.simpleMessage("Build Route"),
+        "deleteRoute": MessageLookupByLibrary.simpleMessage("Delete route"),
         "givePermission":
             MessageLookupByLibrary.simpleMessage("Give permission"),
         "helloUser": m0,

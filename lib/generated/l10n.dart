@@ -169,6 +169,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Build Route`
+  String get buildRoute {
+    return Intl.message(
+      'Build Route',
+      name: 'buildRoute',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete route`
+  String get deleteRoute {
+    return Intl.message(
+      'Delete route',
+      name: 'deleteRoute',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

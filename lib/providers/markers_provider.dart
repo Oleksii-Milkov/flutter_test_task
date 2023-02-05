@@ -37,9 +37,7 @@ class MarkersProvider extends ChangeNotifier {
       width: 80,
     );
 
-    final id = MarkerId(
-      user.location!.latitude.toString() + user.location!.longitude.toString(),
-    );
+    final id = MarkerId(user.id);
     final marker = Marker(
       markerId: id,
       position: LatLng(
@@ -63,10 +61,10 @@ class MarkersProvider extends ChangeNotifier {
     List<DocumentSnapshot> documentList,
     BuildContext context,
   ) {
-    //if (markers.isNotEmpty) markers.clear();
     for (var document in documentList) {
       if (document.id != authProvider.currentUser?.uid) {
         RemoteUser user = RemoteUser.fromJson(
+          document.id,
           document.data() as Map<String, dynamic>,
         );
         if (user.location != null) addMarker(user, context);

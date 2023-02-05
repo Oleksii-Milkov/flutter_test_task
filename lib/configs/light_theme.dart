@@ -7,6 +7,7 @@ class LightTheme {
         ),
         cardTheme: const CardTheme(
           margin: EdgeInsets.zero,
+          clipBehavior: Clip.none,
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           elevation: 6,
