@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "407726671392",
+    "firebase_url": "https://flutter-test-task-5d302-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "flutter-test-task-5d302",
     "storage_bucket": "flutter-test-task-5d302.appspot.com"
   },
@@ -14,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "407726671392-328vvditg8auobgi7dbji3nqpe13i75e.apps.googleusercontent.com",
+          "client_id": "407726671392-b94f9b2evirdvno01q9d32vol7bniln2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_test_task",
+            "certificate_hash": "644843533080078dfb1c527203b1775300035d02"
+          }
+        },
+        {
+          "client_id": "407726671392-00tp6dd3er4tjum6mba50j9csll9nlcs.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +36,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "407726671392-328vvditg8auobgi7dbji3nqpe13i75e.apps.googleusercontent.com",
+              "client_id": "407726671392-00tp6dd3er4tjum6mba50j9csll9nlcs.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "407726671392-1qdhinpfgnib5tcs79066gg1t60i6ljl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterTestTask"
+              }
             }
           ]
         }

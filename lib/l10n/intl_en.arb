@@ -1,0 +1,30 @@
+{
+  "settings": "Settings",
+  "signOut": "Sign out",
+  "profile": "Profile",
+  "helloUser": "Hello,\n{user}!",
+  "@helloUser": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "Language",
+  "permissionDeniedForever": "Permission denied forever. You must go to app setting and enable location permission.",
+  "permissionDenied": "Permission denied",
+  "givePermission": "Give permission",
+  "signInWithGoogle": "Sign in with Google",
+  "lastSeen": "Last seen: {time}",
+  "@lastSeen": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "online": "Online",
+  "search": "Search",
+  "buildRoute": "Build Route",
+  "deleteRoute": "Delete route"
+}

@@ -1,0 +1,30 @@
+{
+  "settings": "Налаштування",
+  "signOut": "Вийти",
+  "profile": "Профіль",
+  "helloUser": "Вітаю,\n{user}!",
+  "@helloUser": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "Мова",
+  "permissionDeniedForever": "Права відхилено назавжди. Вам потрібно надати права самостійно через налаштування.",
+  "permissionDenied": "Права відхилено",
+  "givePermission": "Надати права",
+  "signInWithGoogle": "Увійти через Google",
+  "lastSeen": "Востаннє в мережі: {time}",
+  "@lastSeen": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "online": "В мережі",
+  "search": "Пошук",
+  "buildRoute": "Маршрут",
+  "deleteRoute": "Видалити маршрут"
+}

@@ -12,8 +12,32 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_localizations:
+    sdk: flutter
+
   cupertino_icons: ^1.0.2
+
+  # Firebase libs
   firebase_core: ^2.4.1
+  firebase_auth: ^4.2.5
+  cloud_firestore: ^4.3.1
+  google_sign_in: ^5.4.4
+
+  provider: ^6.0.5
+  shared_preferences: ^2.0.17
+  geolocator: ^9.0.2
+  app_settings: ^4.2.0
+
+  # Map
+  google_maps_flutter: ^2.2.3
+  flutter_google_places: ^0.3.0
+  flutter_polyline_points: ^1.0.0
+  google_maps_webservice: ^0.0.20-nullsafety.5
+  google_api_headers: ^1.5.0+1
+
+  # Http lib to access google maps api
+  http: ^0.13.5
+  uuid: ^3.0.7
 
 dev_dependencies:
   flutter_test:
@@ -23,3 +47,17 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/map_styles/
+
+  fonts:
+    - family: CustomIcons
+      fonts:
+        - asset: fonts/CustomIcons.ttf
+
+flutter_intl:
+  enabled: true
+
