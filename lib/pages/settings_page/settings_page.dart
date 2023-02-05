@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_task/generated/l10n.dart';
-import 'package:flutter_test_task/helpers/locales_helper.dart';
+import 'package:flutter_test_task/helpers/language_helper.dart';
 import 'package:flutter_test_task/pages/language_page/language_page.dart';
 import 'package:flutter_test_task/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +25,7 @@ class SettingPage extends StatelessWidget {
                     title: Text(S.current.language),
                     leading: const Icon(Icons.language),
                     trailing: Text(
-                      LocalesHelper.getCountryName(settingsProvider.languageCode),
+                      LanguageHelper.getCountryName(settingsProvider.languageCode),
                     ),
                     onTap: () {
                       Navigator.push(

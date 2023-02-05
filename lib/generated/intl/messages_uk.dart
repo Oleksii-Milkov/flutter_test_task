@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "permissionDeniedForever": MessageLookupByLibrary.simpleMessage(
             "Права відхилено назавжди. Вам потрібно надати права самостійно через налаштування."),
         "profile": MessageLookupByLibrary.simpleMessage("Профіль"),
+        "search": MessageLookupByLibrary.simpleMessage("Пошук"),
         "settings": MessageLookupByLibrary.simpleMessage("Налаштування"),
         "signInWithGoogle":
             MessageLookupByLibrary.simpleMessage("Увійти через Google"),

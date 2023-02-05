@@ -3,7 +3,6 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_test_task/helpers/location_helper.dart';
 import 'package:flutter_test_task/providers/firebase/database_base.dart';
 import 'package:flutter_test_task/providers/settings_provider.dart';
-import 'package:flutter_test_task/providers/user_provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 enum LocationMode { moved, standart, navigator }
@@ -71,6 +70,16 @@ class MapProvider extends ChangeNotifier with DatabaseBase {
     mapController.animateCamera(cameraUpdate).whenComplete(
           () => locationMode = LocationMode.standart,
         );
+  }
+
+  void animateTo(LatLng position) {
+    CameraPosition cameraPosition = CameraPosition(
+      target: position,
+      zoom: 16,
+    );
+    CameraUpdate cameraUpdate = CameraUpdate.newCameraPosition(cameraPosition);
+
+    mapController.animateCamera(cameraUpdate);
   }
 }
 

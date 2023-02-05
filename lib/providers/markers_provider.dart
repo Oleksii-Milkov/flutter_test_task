@@ -63,7 +63,7 @@ class MarkersProvider extends ChangeNotifier {
     List<DocumentSnapshot> documentList,
     BuildContext context,
   ) {
-    if (markers.isNotEmpty) markers.clear();
+    //if (markers.isNotEmpty) markers.clear();
     for (var document in documentList) {
       if (document.id != authProvider.currentUser?.uid) {
         RemoteUser user = RemoteUser.fromJson(
@@ -72,6 +72,31 @@ class MarkersProvider extends ChangeNotifier {
         if (user.location != null) addMarker(user, context);
       }
     }
+    notifyListeners();
+  }
+
+  void addPlaceMarker(LatLng position, Map<String, dynamic> data) async {
+    const id = MarkerId('places');
+    if (markers[id] != null) removeMarker(id);
+
+    final marker = Marker(
+      markerId: id,
+      position: LatLng(
+        position.latitude,
+        position.longitude,
+      ),
+      icon: BitmapDescriptor.defaultMarker,
+      infoWindow: InfoWindow(
+        title: data['description'],
+        snippet: position.toString(),
+      ),
+    );
+    markers[id] = marker;
+    notifyListeners();
+  }
+
+  void removeMarker(MarkerId markerId) {
+    if (markers[markerId] != null) markers.remove(markerId);
     notifyListeners();
   }
 }

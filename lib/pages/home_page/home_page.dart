@@ -3,6 +3,7 @@ import 'package:flutter_test_task/generated/l10n.dart';
 import 'package:flutter_test_task/helpers/location_helper.dart';
 import 'package:flutter_test_task/pages/home_page/widgets/map.dart';
 import 'package:flutter_test_task/pages/home_page/widgets/menu_drawer.dart';
+import 'package:flutter_test_task/pages/home_page/widgets/search_field.dart';
 import 'package:geolocator/geolocator.dart';
 
 class HomePage extends StatefulWidget {
@@ -52,26 +53,15 @@ class _HomePageState extends State<HomePage> {
               }
             },
           ),
-          SafeArea(
+          const SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Builder(
-                builder: (context) {
-                  return IconButton(
-                    onPressed: () {
-                      Scaffold.of(context).openDrawer();
-                    },
-                    icon: const Icon(
-                      Icons.menu,
-                      size: 36,
-                    ),
-                  );
-                },
-              ),
+              padding: EdgeInsets.all(8.0),
+              child: SearchField(),
             ),
           ),
         ],
       ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }

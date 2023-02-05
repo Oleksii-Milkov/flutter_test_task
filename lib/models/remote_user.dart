@@ -34,6 +34,6 @@ class RemoteUser {
   }
 
   String get shortTimeStamp {
-    return DateFormat('d MMM, h:mm').format(lastSeen!.toDate());
+    return DateFormat('d MMM, HH:mm').format(lastSeen!.toDate());
   }
 }

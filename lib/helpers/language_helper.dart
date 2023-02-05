@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter_test_task/models/language.dart';
 
-class LocalesHelper {
+class LanguageHelper {
   static List<Language> languagesList = [
     Language(
       locale: const Locale("en"),

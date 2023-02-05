@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "permissionDeniedForever": MessageLookupByLibrary.simpleMessage(
             "Permission denied forever. You must go to app setting and enable location permission."),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signInWithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),

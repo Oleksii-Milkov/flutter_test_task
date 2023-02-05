@@ -10,9 +10,8 @@ class LocationButton extends StatelessWidget {
     return Theme(
       data: Theme.of(context).copyWith(
         floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: Theme.of(context).colorScheme.primary,
+          backgroundColor: Theme.of(context).dialogBackgroundColor,
           foregroundColor: Theme.of(context).iconTheme.color,
-          iconSize: 32,
         ),
       ),
       child: Padding(

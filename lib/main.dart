@@ -2,9 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_test_task/configs/dark_theme.dart';
+import 'package:flutter_test_task/configs/light_theme.dart';
 import 'package:flutter_test_task/firebase_options.dart';
 import 'package:flutter_test_task/generated/l10n.dart';
-import 'package:flutter_test_task/helpers/locales_helper.dart';
+import 'package:flutter_test_task/helpers/language_helper.dart';
 import 'package:flutter_test_task/pages/auth_page/auth_page.dart';
 import 'package:flutter_test_task/pages/home_page/home_page.dart';
 import 'package:flutter_test_task/providers.dart';
@@ -60,18 +62,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
             // Theme mode
             themeMode: settingsProvider.themeMode,
-            theme: ThemeData(
-              colorScheme: const ColorScheme.light(primary: Colors.blueAccent),
-              cardTheme: const CardTheme(
-                margin: EdgeInsets.zero,
-              ),
-            ),
-            darkTheme: ThemeData(
-              colorScheme: const ColorScheme.dark(),
-              cardTheme: const CardTheme(
-                margin: EdgeInsets.zero,
-              ),
-            ),
+            theme: LightTheme.theme,
+            darkTheme: DarkTheme.theme,
 
             // Localization
             locale: Locale(languageCode),
@@ -81,7 +73,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            supportedLocales: LocalesHelper.localesList,
+            supportedLocales: LanguageHelper.localesList,
 
             home: Builder(
               builder: (context) {

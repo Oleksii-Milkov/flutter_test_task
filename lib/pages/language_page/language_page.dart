@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_task/generated/l10n.dart';
-import 'package:flutter_test_task/helpers/locales_helper.dart';
+import 'package:flutter_test_task/helpers/language_helper.dart';
 import 'package:flutter_test_task/models/language.dart';
 import 'package:flutter_test_task/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +24,7 @@ class LanguagePage extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
                   Language language =
-                      LocalesHelper.languagesList.elementAt(index);
+                      LanguageHelper.languagesList.elementAt(index);
 
                   return ListTile(
                     title: Text(language.countryName),
@@ -47,7 +47,7 @@ class LanguagePage extends StatelessWidget {
                     height: 2.0,
                   );
                 },
-                itemCount: LocalesHelper.languagesList.length,
+                itemCount: LanguageHelper.languagesList.length,
               ),
             ),
           ],

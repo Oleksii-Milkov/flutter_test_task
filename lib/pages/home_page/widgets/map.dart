@@ -94,6 +94,9 @@ class _FlutterMapState extends State<FlutterMap> with WidgetsBindingObserver {
           markers: Set.of(
             context.watch<MarkersProvider>().markers.values,
           ),
+          onTap: (LatLng position) {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           onCameraMoveStarted: () {
             context.read<MapProvider>().locationMode = LocationMode.moved;
           },
